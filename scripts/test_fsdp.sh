@@ -12,7 +12,7 @@ CUDA_VISIBLE_DEVICES=0,1,2,3 fairseq-train /private/home/sshleifer/data-bin/stor
     --save-interval-updates 5 --save-dir fsdp_dummy --disable-validation \
     --restore-file x.pt "$@"
 
-# Now we try to load the checkpoint
+# Now we try to load the checkpoint 
 CUDA_VISIBLE_DEVICES=0,1 fairseq-train /private/home/sshleifer/data-bin/stories_mmap \
     --ddp-backend fully_sharded --fp16 --fp16-init-scale 4 \
     --cpu-offload --checkpoint-activations \
